@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Simulador GTA252AIII para ensino de cálculos elétricos e mecânicos de geradores síncronos brushless." />
+  <meta name="theme-color" content="#f4f7fb" />
+  <title>Simulador GTA252AIII | Gerador Síncrono Brushless</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="#topo" aria-label="Ir para o início">
+          <span class="brand-mark" aria-hidden="true">
+            <i data-lucide="zap"></i>
+          </span>
+          <span class="brand-copy">
+            <span class="brand-name">Simulador GTA252AIII</span>
+            <span class="brand-subtitle">Gerador síncrono brushless · cálculo · ensino técnico</span>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navegação principal">
+          <a class="nav-link" data-nav-link href="#sistema">Sistema</a>
+          <a class="nav-link" data-nav-link href="#diagramas">Diagramas</a>
+          <a class="nav-link" data-nav-link href="#calculadoras">Cálculos</a>
+          <a class="nav-link" data-nav-link href="#checklist">Checklist</a>
+          <a class="nav-link" data-nav-link href="#validacao">Validação</a>
+        </nav>
+
+        <button class="menu-button" type="button" data-menu-toggle aria-controls="mobile-menu" aria-expanded="false">
+          <i data-lucide="menu" data-menu-open-icon></i>
+          <i data-lucide="x" data-menu-close-icon hidden></i>
+          <span data-menu-label>Menu</span>
+        </button>
+      </div>
+
+      <div class="mobile-panel" id="mobile-menu" data-mobile-panel hidden>
+        <nav class="mobile-nav" aria-label="Navegação móvel">
+          <a class="nav-link" data-nav-link href="#sistema">Sistema</a>
+          <a class="nav-link" data-nav-link href="#diagramas">Diagramas</a>
+          <a class="nav-link" data-nav-link href="#calculadoras">Cálculos</a>
+          <a class="nav-link" data-nav-link href="#checklist">Checklist</a>
+          <a class="nav-link" data-nav-link href="#validacao">Validação</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section id="topo" class="hero section">
+      <div class="container hero-grid">
+        <article class="panel hero-copy">
+          <div class="eyebrow">
+            <i data-lucide="activity"></i>
+            Ambiente técnico educacional
+          </div>
+
+          <h1>Aprenda a calcular e interpretar um gerador síncrono brushless do painel ao eixo.</h1>
+
+          <p class="lead">
+            Este simulador foi reorganizado para guiar o engenheiro mecânico pelos cálculos elétricos e mecânicos mais usados no diagnóstico do conjunto GTA252AIII: corrente, torque, rotação síncrona, excitação e validação operacional.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#calculadoras">
+              <i data-lucide="calculator"></i>
+              Ir para cálculos
+            </a>
+            <a class="btn btn-secondary" href="#checklist">
+              <i data-lucide="clipboard-check"></i>
+              Ver checklist
+            </a>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-value">60 Hz</span>
+              <span class="stat-label">frequência nominal</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value">4 polos</span>
+              <span class="stat-label">base do alternador</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value">1.800 rpm</span>
+              <span class="stat-label">rotação síncrona</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value">Brushless</span>
+              <span class="stat-label">excitação sem escovas</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="panel panel-dark hero-aside">
+          <div class="aside-inner">
+            <div class="aside-header">
+              <span class="badge badge-dark">
+                <i data-lucide="book-open"></i>
+                Roteiro de estudo
+              </span>
+              <h2 class="aside-title">O que conferir primeiro</h2>
+              <p class="aside-copy">
+                O objetivo é sempre chegar no número certo, mas também entender de onde ele vem.
+              </p>
+            </div>
+
+            <div class="aside-list">
+              <div class="aside-item">
+                <strong>1. Potência e corrente</strong>
+                <p>Use kVA ou kW/FP para validar a corrente nominal, cabos e proteção.</p>
+              </div>
+              <div class="aside-item">
+                <strong>2. Velocidade síncrona</strong>
+                <p>Confirme a relação entre frequência, número de polos e rotação do grupo gerador.</p>
+              </div>
+              <div class="aside-item">
+                <strong>3. Excitação e torque</strong>
+                <p>Verifique AVR, campo da excitatriz e torque mecânico exigido no eixo.</p>
+              </div>
+            </div>
+
+            <div class="aside-formula">
+              <div class="formula-row">
+                <span>60 Hz</span>
+                <span>× 4 polos</span>
+                <span>= 1.800 rpm</span>
+              </div>
+              <p>Conferência rápida para validar a rotação síncrona do alternador.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="sistema" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-eyebrow">
+              <i data-lucide="git-branch"></i>
+              Visão geral do conjunto
+            </div>
+            <h2 class="section-title">Leitura funcional do sistema</h2>
+          </div>
+          <p class="section-copy">
+            Uma visão clara do fluxo ajuda o engenheiro a separar o que é potência, o que é excitação e o que é supervisão.
+          </p>
+        </div>
+
+        <div class="triptych-grid">
+          <article class="info-card" style="--tone:#155eef; --tone-soft:rgba(21,94,239,.12);">
+            <span class="icon-box">
+              <i data-lucide="factory"></i>
+            </span>
+            <h3>Potência principal</h3>
+            <p>O gerador entrega energia em R/S/T. Os cálculos de corrente por kVA e por kW ajudam a checar cabos, proteção e aquecimento.</p>
+          </article>
+
+          <article class="info-card" style="--tone:#0f9d8f; --tone-soft:rgba(15,157,143,.12);">
+            <span class="icon-box">
+              <i data-lucide="magnet"></i>
+            </span>
+            <h3>Excitação brushless</h3>
+            <p>A bobina auxiliar alimenta o AVR, que regula a excitatriz. A corrente mais fácil de medir é a do campo estacionário da excitatriz.</p>
+          </article>
+
+          <article class="info-card" style="--tone:#7c3aed; --tone-soft:rgba(124,58,237,.12);">
+            <span class="icon-box">
+              <i data-lucide="monitor"></i>
+            </span>
+            <h3>Controle e supervisão</h3>
+            <p>TCs, multimedidor, transdutor de frequência e PLC formam a malha de supervisão do conjunto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="diagramas" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-eyebrow">
+              <i data-lucide="layout-grid"></i>
+              Diagramas didáticos
+            </div>
+            <h2 class="section-title">Fluxo de energia, medição e controle</h2>
+          </div>
+          <p class="section-copy">
+            A representação abaixo é didática, não substitui o diagrama executivo do fabricante. Ela existe para ensinar leitura e inspeção.
+          </p>
+        </div>
+
+        <div class="diagram-grid">
+          <article class="diagram-card">
+            <div class="card-top">
+              <div>
+                <h3>Fluxo da excitação brushless</h3>
+                <p>Saída do caminho de energia até o rotor principal.</p>
+              </div>
+              <span class="badge">
+                <i data-lucide="zap"></i>
+                AVR
+              </span>
+            </div>
+
+            <div class="diagram-path">
+              <div class="diagram-node" style="--tone:#155eef; --tone-soft:rgba(21,94,239,.12);">
+                <span class="node-icon"><i data-lucide="waves"></i></span>
+                <strong>Bobina auxiliar</strong>
+                <span>Alimenta o AVR</span>
+              </div>
+              <div class="diagram-arrow" aria-hidden="true">
+                <i data-lucide="arrow-right"></i>
+              </div>
+              <div class="diagram-node" style="--tone:#f59e0b; --tone-soft:rgba(245,158,11,.12);">
+                <span class="node-icon"><i data-lucide="cpu"></i></span>
+                <strong>AVR GRT7-TH4E</strong>
+                <span>Regula a excitação</span>
+              </div>
+              <div class="diagram-arrow" aria-hidden="true">
+                <i data-lucide="arrow-right"></i>
+              </div>
+              <div class="diagram-node" style="--tone:#0f9d8f; --tone-soft:rgba(15,157,143,.12);">
+                <span class="node-icon"><i data-lucide="magnet"></i></span>
+                <strong>Campo da excitatriz</strong>
+                <span>Parte estacionária</span>
+              </div>
+              <div class="diagram-arrow" aria-hidden="true">
+                <i data-lucide="arrow-right"></i>
+              </div>
+              <div class="diagram-node" style="--tone:#7c3aed; --tone-soft:rgba(124,58,237,.12);">
+                <span class="node-icon"><i data-lucide="rotate-cw"></i></span>
+                <strong>Ponte girante</strong>
+                <span>Diodos e rotor</span>
+              </div>
+            </div>
+
+            <div class="diagram-footnotes">
+              <div class="mini-note">
+                <strong>Medição acessível</strong>
+                <p>Corrente DC entre o AVR e o campo da excitatriz.</p>
+              </div>
+              <div class="mini-note">
+                <strong>Medição indireta</strong>
+                <p>Campo principal do rotor, pois gira internamente.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="diagram-card">
+            <div class="card-top">
+              <div>
+                <h3>Unifilar simplificado do painel</h3>
+                <p>Fluxo de potência, medição e controle em sequência.</p>
+              </div>
+              <span class="badge">
+                <i data-lucide="gauge"></i>
+                Painel
+              </span>
+            </div>
+
+            <div class="flow-list">
+              <div class="flow-step" style="--tone:#155eef; --tone-soft:rgba(21,94,239,.12);">
+                <span class="step-index">1</span>
+                <div>
+                  <strong>Saída trifásica R/S/T</strong>
+                  <p>Cabos ou barramentos de potência do gerador.</p>
+                </div>
+              </div>
+              <div class="flow-step" style="--tone:#f59e0b; --tone-soft:rgba(245,158,11,.12);">
+                <span class="step-index">2</span>
+                <div>
+                  <strong>Transformadores de corrente</strong>
+                  <p>TC1, TC2 e TC3 reduzem a corrente para o multimedidor.</p>
+                </div>
+              </div>
+              <div class="flow-step" style="--tone:#0f9d8f; --tone-soft:rgba(15,157,143,.12);">
+                <span class="step-index">3</span>
+                <div>
+                  <strong>Multimedidor</strong>
+                  <p>Calcula A, V, Hz, kW, kVA, FP e energia.</p>
+                </div>
+              </div>
+              <div class="flow-step" style="--tone:#7c3aed; --tone-soft:rgba(124,58,237,.12);">
+                <span class="step-index">4</span>
+                <div>
+                  <strong>PLC e transdutor 0–5 Vdc</strong>
+                  <p>O sinal de frequência é convertido para controle operacional.</p>
+                </div>
+              </div>
+              <div class="flow-step" style="--tone:#0891b2; --tone-soft:rgba(8,145,178,.12);">
+                <span class="step-index">5</span>
+                <div>
+                  <strong>Flyback e banco CC</strong>
+                  <p>O carregador mantém as baterias e o circuito de emergência.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculadoras" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-eyebrow">
+              <i data-lucide="calculator"></i>
+              Cálculos interativos
+            </div>
+            <h2 class="section-title">Módulos que o engenheiro usa no campo</h2>
+          </div>
+          <p class="section-copy">
+            As entradas inválidas ficam zeradas para evitar resultado enganoso. Os módulos abaixo cobrem as contas elétricas e mecânicas mais úteis no diagnóstico.
+          </p>
+        </div>
+
+        <div class="calculator-grid">
+          <article class="calc-card" style="--accent:#155eef; --accent-soft:rgba(21,94,239,.12);">
+            <div class="calc-header">
+              <div>
+                <div class="calc-kicker">1. Cálculo elétrico</div>
+                <h3 class="calc-title">Corrente nominal por kVA</h3>
+                <p class="calc-description">Usado para dimensionar cabos, proteção e leitura da corrente trifásica do gerador.</p>
+              </div>
+              <span class="icon-box"><i data-lucide="sigma"></i></span>
+            </div>
+
+            <div class="calc-formula">I = (S × 1000) / (√3 × V)</div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Potência aparente S em kVA</span>
+                <input type="text" inputmode="decimal" id="calc-kva-s" class="input" placeholder="Ex.: 125" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Tensão fase-fase V</span>
+                <input type="text" inputmode="decimal" id="calc-kva-v" class="input" placeholder="Ex.: 220, 380 ou 440" autocomplete="off" />
+              </label>
+            </div>
+
+            <div class="result-box" role="status" aria-live="polite">
+              <span class="result-label">Resultado</span>
+              <span id="result-kva" class="result-value">0,00 A</span>
+            </div>
+            <p id="hint-kva" class="result-note">Informe a potência aparente e a tensão de linha para obter a corrente.</p>
+          </article>
+
+          <article class="calc-card" style="--accent:#0f9d8f; --accent-soft:rgba(15,157,143,.12);">
+            <div class="calc-header">
+              <div>
+                <div class="calc-kicker">2. Cálculo elétrico</div>
+                <h3 class="calc-title">Corrente nominal por kW</h3>
+                <p class="calc-description">Considera a potência ativa e o fator de potência do conjunto.</p>
+              </div>
+              <span class="icon-box"><i data-lucide="plug-zap"></i></span>
+            </div>
+
+            <div class="calc-formula">I = (P × 1000) / (√3 × V × FP)</div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Potência ativa P em kW</span>
+                <input type="text" inputmode="decimal" id="calc-kw-p" class="input" placeholder="Ex.: 100" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Tensão fase-fase V</span>
+                <input type="text" inputmode="decimal" id="calc-kw-v" class="input" placeholder="Ex.: 380" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Fator de potência</span>
+                <input type="text" inputmode="decimal" id="calc-kw-fp" class="input" value="0.80" autocomplete="off" />
+              </label>
+            </div>
+
+            <div class="result-box" role="status" aria-live="polite">
+              <span class="result-label">Resultado</span>
+              <span id="result-kw" class="result-value">0,00 A</span>
+            </div>
+            <p id="hint-kw" class="result-note">FP usual de gerador: 0,8 quando o valor de placa não estiver disponível.</p>
+          </article>
+
+          <article class="calc-card" style="--accent:#f59e0b; --accent-soft:rgba(245,158,11,.12);">
+            <div class="calc-header">
+              <div>
+                <div class="calc-kicker">3. Excitação brushless</div>
+                <h3 class="calc-title">Corrente de excitação aproximada</h3>
+                <p class="calc-description">Estimativa no campo da excitatriz, não no rotor principal.</p>
+              </div>
+              <span class="icon-box"><i data-lucide="magnet"></i></span>
+            </div>
+
+            <div class="calc-formula">Iexc = Vavr / Rcampo</div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Tensão de saída do AVR em Vdc</span>
+                <input type="text" inputmode="decimal" id="calc-exc-v" class="input" placeholder="Ex.: 40" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Resistência do campo em Ω</span>
+                <input type="text" inputmode="decimal" id="calc-exc-r" class="input" placeholder="Ex.: 20" autocomplete="off" />
+              </label>
+            </div>
+
+            <div class="result-box" role="status" aria-live="polite">
+              <span class="result-label">Resultado</span>
+              <span id="result-exc" class="result-value">0,00 A</span>
+            </div>
+            <p id="hint-exc" class="result-note">Valor aproximado; em campo, o ideal é medir com alicate DC em um único condutor.</p>
+          </article>
+
+          <article class="calc-card" style="--accent:#7c3aed; --accent-soft:rgba(124,58,237,.12);">
+            <div class="calc-header">
+              <div>
+                <div class="calc-kicker">4. Velocidade elétrica</div>
+                <h3 class="calc-title">Rotação síncrona</h3>
+                <p class="calc-description">Relaciona frequência elétrica e número de polos do alternador.</p>
+              </div>
+              <span class="icon-box"><i data-lucide="rotate-cw"></i></span>
+            </div>
+
+            <div class="calc-formula">ns = (120 × f) / P</div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Frequência em Hz</span>
+                <input type="text" inputmode="decimal" id="calc-sync-hz" class="input" value="60" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Número de polos</span>
+                <select id="calc-sync-poles" class="input">
+                  <option value="2">2 polos</option>
+                  <option value="4" selected>4 polos</option>
+                  <option value="6">6 polos</option>
+                  <option value="8">8 polos</option>
+                  <option value="10">10 polos</option>
+                  <option value="12">12 polos</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="result-box" role="status" aria-live="polite">
+              <span class="result-label">Resultado</span>
+              <span id="result-sync" class="result-value">1.800 rpm</span>
+            </div>
+            <p id="hint-sync" class="result-note">Para 60 Hz e 4 polos, o valor correto é 1.800 rpm.</p>
+          </article>
+
+          <article class="calc-card" style="--accent:#0891b2; --accent-soft:rgba(8,145,178,.12);">
+            <div class="calc-header">
+              <div>
+                <div class="calc-kicker">5. Cálculo mecânico</div>
+                <h3 class="calc-title">Torque no eixo</h3>
+                <p class="calc-description">Converte potência mecânica e rotação em torque útil para o eixo.</p>
+              </div>
+              <span class="icon-box"><i data-lucide="ruler"></i></span>
+            </div>
+
+            <div class="calc-formula">T = (9550 × P) / n</div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Potência mecânica em kW</span>
+                <input type="text" inputmode="decimal" id="calc-torque-p" class="input" placeholder="Ex.: 100" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Rotação em rpm</span>
+                <input type="text" inputmode="decimal" id="calc-torque-rpm" class="input" placeholder="Ex.: 1800" autocomplete="off" />
+              </label>
+            </div>
+
+            <div class="result-box" role="status" aria-live="polite">
+              <span class="result-label">Resultado</span>
+              <span id="result-torque" class="result-value">0,00 N·m</span>
+            </div>
+            <p id="hint-torque" class="result-note">Útil para comparar a carga do motor primário e o acoplamento do conjunto.</p>
+          </article>
+
+          <article class="calc-card" style="--accent:#ef4444; --accent-soft:rgba(239,68,68,.12);">
+            <div class="calc-header">
+              <div>
+                <div class="calc-kicker">6. Conferência rápida</div>
+                <h3 class="calc-title">Frequência pela rotação</h3>
+                <p class="calc-description">Permite verificar a frequência a partir da rotação medida e do número de polos.</p>
+              </div>
+              <span class="icon-box"><i data-lucide="gauge"></i></span>
+            </div>
+
+            <div class="calc-formula">f = (n × P) / 120</div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Rotação em rpm</span>
+                <input type="text" inputmode="decimal" id="calc-freq-rpm" class="input" value="1800" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Número de polos</span>
+                <select id="calc-freq-poles" class="input">
+                  <option value="2">2 polos</option>
+                  <option value="4" selected>4 polos</option>
+                  <option value="6">6 polos</option>
+                  <option value="8">8 polos</option>
+                  <option value="10">10 polos</option>
+                  <option value="12">12 polos</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="result-box" role="status" aria-live="polite">
+              <span class="result-label">Resultado</span>
+              <span id="result-freq" class="result-value">60,00 Hz</span>
+            </div>
+            <p id="hint-freq" class="result-note">Em 1.800 rpm com 4 polos, a frequência deve ser 60 Hz.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="checklist" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-eyebrow">
+              <i data-lucide="clipboard-check"></i>
+              Checklist de engenharia
+            </div>
+            <h2 class="section-title">Como pensar antes de fechar um diagnóstico</h2>
+          </div>
+          <p class="section-copy">
+            A ordem importa: primeiro entender a placa e a condição operacional, depois medir e só então concluir.
+          </p>
+        </div>
+
+        <div class="note-grid">
+          <article class="note-card" style="--tone:#155eef;">
+            <span class="badge">
+              <i data-lucide="target"></i>
+              Etapa 1
+            </span>
+            <h3>Antes de calcular</h3>
+            <ul class="check-list">
+              <li>Confirme kVA, tensão, frequência, fator de potência e número de polos.</li>
+              <li>Verifique se a leitura é fase-fase ou fase-neutro.</li>
+              <li>Confira se o conjunto opera em 60 Hz, 50 Hz ou outra referência.</li>
+            </ul>
+          </article>
+
+          <article class="note-card" style="--tone:#0f9d8f;">
+            <span class="badge">
+              <i data-lucide="activity"></i>
+              Etapa 2
+            </span>
+            <h3>Durante a medição</h3>
+            <ul class="check-list">
+              <li>Em corrente DC, abrace apenas um condutor com o alicate.</li>
+              <li>Não deixe o secundário do TC aberto durante operação.</li>
+              <li>Confira escala, zero do instrumento e polaridade dos cabos.</li>
+            </ul>
+          </article>
+
+          <article class="note-card" style="--tone:#7c3aed;">
+            <span class="badge">
+              <i data-lucide="shield-check"></i>
+              Etapa 3
+            </span>
+            <h3>Depois da leitura</h3>
+            <ul class="check-list">
+              <li>Compare corrente, rotação, temperatura e vibração com o esperado.</li>
+              <li>Se a tensão estiver correta e a corrente alta, verifique carga e FP.</li>
+              <li>Se a frequência cair, primeiro confirme a rotação mecânica.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="validacao" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-eyebrow">
+              <i data-lucide="shield-check"></i>
+              Validação técnica
+            </div>
+            <h2 class="section-title">O que este simulador faz bem</h2>
+          </div>
+          <p class="section-copy">
+            A base foi limpa para deixar mais fácil de ensinar, revisar e manter. O foco continua sendo cálculo correto com linguagem visual mais clara.
+          </p>
+        </div>
+
+        <div class="validation-grid">
+          <article class="validation-card status-ok">
+            <div class="validation-title">
+              <i data-lucide="check-circle"></i>
+              Fórmulas corretas
+            </div>
+            <p>As fórmulas de corrente trifásica, rotação síncrona, torque e frequência inversa estão coerentes com a prática de campo.</p>
+          </article>
+
+          <article class="validation-card status-warn">
+            <div class="validation-title">
+              <i data-lucide="alert-triangle"></i>
+              Brushless sem confusão
+            </div>
+            <p>A corrente de excitação acessível é a do campo da excitatriz. O rotor principal é alimentado pela ponte girante e não é medido diretamente no painel.</p>
+          </article>
+
+          <article class="validation-card status-ok">
+            <div class="validation-title">
+              <i data-lucide="layout-dashboard"></i>
+              Interface pronta para mobile
+            </div>
+            <p>O header agora usa contraste claro, navegação móvel, blocos empilhados e layouts que se reorganizam bem em telas pequenas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <strong>Simulador GTA252AIII · Engenharia Mecânica, Elétrica e Eletromecânica Aplicada</strong>
+      <p>Representação educacional baseada nas informações transcritas do painel e da tabela técnica.</p>
+    </div>
+  </footer>
+</body>
+</html>
