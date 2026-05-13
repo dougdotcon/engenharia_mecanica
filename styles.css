@@ -524,6 +524,7 @@ select {
 .triptych-grid,
 .diagram-grid,
 .calculator-grid,
+.spec-grid,
 .note-grid,
 .validation-grid {
   display: grid;
@@ -532,6 +533,10 @@ select {
 
 .triptych-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.spec-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .info-card,
@@ -582,6 +587,100 @@ select {
 
 .diagram-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.spec-card {
+  padding: 1.35rem;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
+}
+
+.spec-card h3 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -0.04em;
+  font-size: 1.2rem;
+}
+
+.spec-text {
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.spec-list {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.spec-list li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.spec-list li::before {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: var(--primary);
+  margin-top: 0.42rem;
+  flex: 0 0 auto;
+}
+
+.table-wrap {
+  margin-top: 0.95rem;
+  overflow-x: auto;
+  border-radius: 22px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #fff;
+}
+
+.tech-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 100%;
+}
+
+.tech-table th,
+.tech-table td {
+  padding: 0.8rem 0.95rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.tech-table th {
+  width: 44%;
+  color: #334155;
+  font-weight: 900;
+  background: #f8fafc;
+}
+
+.tech-table td {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.tech-table tr:last-child th,
+.tech-table tr:last-child td {
+  border-bottom: none;
+}
+
+.spec-note {
+  margin: 0.95rem 0 0;
+  color: #475569;
+  line-height: 1.6;
+  font-weight: 700;
 }
 
 .diagram-card {
@@ -951,6 +1050,7 @@ select {
   .hero-grid,
   .diagram-grid,
   .calculator-grid,
+  .spec-grid,
   .note-grid,
   .validation-grid,
   .triptych-grid {

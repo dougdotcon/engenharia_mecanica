@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (initialSection && sectionLinks.has(initialSection)) {
     setActiveLink(initialSection);
   } else {
-    setActiveLink("sistema");
+    setActiveLink("dados-tecnicos");
   }
 
   if ("IntersectionObserver" in window) {
